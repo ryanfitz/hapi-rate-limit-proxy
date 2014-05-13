@@ -1,0 +1,37 @@
+{
+  "name": "hapi-rate-limit-proxy",
+  "description": "Rate limit proxy plugin",
+  "version": "0.0.1",
+  "author": "Ryan Fitzgerald <ryan.fitz1@gmail.com>",
+  "repository": "git://github.com/ryanfitz/hapi-rate-limit-proxy",
+  "main": "index",
+  "keywords": [
+    "hapi",
+    "plugin",
+    "rate limit",
+    "proxy"
+  ],
+  "engines": {
+    "node": ">=0.10.22"
+  },
+  "dependencies": {
+    "boom": "2.x.x",
+    "hoek": "1.x.x"
+  },
+  "peerDependencies": {
+    "hapi": ">=2.x.x"
+  },
+  "devDependencies": {
+    "hapi": "3.x.x",
+    "lab": "1.x.x"
+  },
+  "scripts": {
+    "test": "make test-cov"
+  },
+  "licenses": [
+    {
+      "type": "BSD",
+      "url": "http://github.com/ryanfitz/hapi-rate-limit-proxy/raw/master/LICENSE"
+    }
+  ]
+}
