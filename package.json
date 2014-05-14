@@ -15,15 +15,23 @@
     "node": ">=0.10.22"
   },
   "dependencies": {
-    "boom": "2.x.x",
-    "hoek": "1.x.x"
+    "async": "^0.8.0",
+    "boom": "^2.4.1",
+    "hoek": "1.x.x",
+    "joi": "^3.1.0",
+    "lodash": "^2.4.1",
+    "redback": "^0.4.0"
   },
   "peerDependencies": {
     "hapi": ">=2.x.x"
   },
   "devDependencies": {
     "hapi": "3.x.x",
-    "lab": "1.x.x"
+    "lab": "3.x.x",
+    "grunt": "0.4.x",
+    "grunt-contrib-jshint": "0.10.x",
+    "grunt-contrib-watch": "0.6.x",
+    "grunt-bump": "0.0.13"
   },
   "scripts": {
     "test": "make test-cov"
