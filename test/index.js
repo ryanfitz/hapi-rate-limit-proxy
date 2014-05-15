@@ -20,11 +20,21 @@ describe('RateLimiterProxy', function () {
   var upstream = new Hapi.Server(0);
   upstream.route({ method: 'GET', path: '/profile', handler: handler });
 
+  var redirectHandler = function (request, reply) {
+    reply().redirect(upstream.info.uri + '/profile');
+  };
+
+  var redirectUpstream = new Hapi.Server(0);
+  redirectUpstream.route({ method: 'GET', path: '/redirect', handler: redirectHandler });
+
   var server = new Hapi.Server({ debug: false });
 
   before(function (done) {
 
-    upstream.start(function () {
+    async.parallel([
+      upstream.start.bind(upstream),
+      redirectUpstream.start.bind(redirectUpstream)
+    ], function () {
 
       server.pack.require('../', {host: '127.0.0.1', port: 6379}, function (err) {
         if(err) {
@@ -65,6 +75,19 @@ describe('RateLimiterProxy', function () {
     });
   });
 
+  it('returns a reply from redirected location server', function (done) {
+
+    var link = redirectUpstream.info.uri + '/redirect';
+    var request = { method: 'GET', url: '/proxy?url=' + link };
+
+    server.inject(request, function (res) {
+      expect(res.statusCode).to.equal(200);
+      expect(res.result).to.exist;
+      expect(res.result).to.equal('ok');
+
+      done();
+    });
+  });
 
   it('returns a 429', function (done) {
     var link = upstream.info.uri + '/profile';
