@@ -17,7 +17,7 @@
   "dependencies": {
     "async": "^0.8.0",
     "boom": "^2.4.1",
-    "hoek": "1.x.x",
+    "hoek": "2.x.x",
     "joi": "^3.1.0",
     "lodash": "^2.4.1",
     "redback": "^0.4.0"
