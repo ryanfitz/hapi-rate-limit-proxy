@@ -51,6 +51,20 @@ describe('RateLimiterProxy', function () {
     });
   });
 
+  it('returns a reply from upstream server with query string params', function (done) {
+
+    var link = upstream.info.uri + '/profile?cid=5678&via=top&CTARef=Homepage|CTA|smartwear';
+    var request = { method: 'GET', url: '/proxy?url=' + link };
+
+    server.inject(request, function (res) {
+      expect(res.statusCode).to.equal(200);
+      expect(res.result).to.exist;
+      expect(res.result).to.equal('ok');
+
+      done();
+    });
+  });
+
 
   it('returns a 429', function (done) {
     var link = upstream.info.uri + '/profile';
