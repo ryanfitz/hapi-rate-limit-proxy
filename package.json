@@ -15,18 +15,18 @@
     "node": ">=0.10.22"
   },
   "dependencies": {
-    "async": "^0.8.0",
-    "boom": "^2.4.1",
+    "async": "^0.9.0",
+    "boom": "2.x.x",
     "hoek": "2.x.x",
-    "joi": "^3.1.0",
+    "joi": "4.7.x",
     "lodash": "^2.4.1",
     "redback": "^0.4.0"
   },
   "peerDependencies": {
-    "hapi": ">=2.x.x"
+    "hapi": ">=7.x.x"
   },
   "devDependencies": {
-    "hapi": "4.x.x",
+    "hapi": "7.x.x",
     "lab": "3.x.x",
     "grunt": "0.4.x",
     "grunt-contrib-jshint": "0.10.x",
