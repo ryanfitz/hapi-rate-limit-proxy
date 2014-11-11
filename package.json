@@ -1,7 +1,7 @@
 {
   "name": "hapi-rate-limit-proxy",
   "description": "Rate limit proxy plugin",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "author": "Ryan Fitzgerald <ryan.fitz1@gmail.com>",
   "repository": "git://github.com/ryanfitz/hapi-rate-limit-proxy",
   "main": "index",
